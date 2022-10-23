@@ -15,12 +15,8 @@ Boolean exit = false;
 //
 List<FileIdentifier> fileEntries;
 List<FileIdentifier> repeatFiles;
-// UI
-Console.BackgroundColor = ConsoleColor.DarkRed;
 
-Console.WriteLine("n-f-d (not a file duplicator)\n\n");
-Console.ResetColor();
-Console.WriteLine("Console application to delete duplicate files\n");
+ConsoleProperties();
 
 while (!exit)
 {
@@ -34,32 +30,24 @@ while (!exit)
         {
             case 1:
                 Console.WriteLine("Directory cleaning /Downloads in process.");
-
                 dir = GetDownloadFolderPath();
-
                 fileEntries = new List<FileIdentifier>();
-
                 GetFilesOfDirectory(fileEntries, dir);
-
                 SeekAndDeleteDuplicateFiles();
-
                 break;
 
             case 2:
                 GetRouteOfDirectory();
-
                 fileEntries = new List<FileIdentifier>();
-
                 GetFilesOfDirectory(fileEntries, dir);
-
                 SeekAndDeleteDuplicateFiles();
-
                 break;
 
             case 3:
                 Console.WriteLine("Exiting the application");
                 exit = true;
                 break;
+
             default:
                 Console.WriteLine("Choose an option between 1 and 3");
                 break;
@@ -76,6 +64,15 @@ Console.ReadLine();
 
 
 #region Methods
+
+static void ConsoleProperties()
+{
+    Console.BackgroundColor = ConsoleColor.DarkRed;
+    Console.Title = "n-f-d";
+    Console.WriteLine("n-f-d (not a file duplicator)\n\n");
+    Console.ResetColor();
+    Console.WriteLine("Console application to delete duplicate files\n");
+}
 
 static void MenuOptions()
 {
