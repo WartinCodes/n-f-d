@@ -26,10 +26,8 @@ while (!exit)
 {
     try
     {
-        Console.WriteLine("1. Clean /Download directory");
-        Console.WriteLine("2. Enter path to the directory to be cleaned");
-        Console.WriteLine("3. Exit");
-        Console.WriteLine("Select one of the options");
+        MenuOptions();
+
         int opcion = Convert.ToInt32(Console.ReadLine());
 
         switch (opcion)
@@ -51,7 +49,7 @@ while (!exit)
                 GetRouteOfDirectory();
 
                 fileEntries = new List<FileIdentifier>();
-                
+
                 GetFilesOfDirectory(fileEntries, dir);
 
                 SeekAndDeleteDuplicateFiles();
@@ -78,6 +76,14 @@ Console.ReadLine();
 
 
 #region Methods
+
+static void MenuOptions()
+{
+    Console.WriteLine("1. Clean /Download directory");
+    Console.WriteLine("2. Enter path to the directory to be cleaned");
+    Console.WriteLine("3. Exit");
+    Console.WriteLine("Select one of the options");
+}
 
 string GetDownloadFolderPath()
 {
